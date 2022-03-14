@@ -8,7 +8,9 @@
         <el-header class="layout-header">
           <LyHeader />
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view />
+        </el-main>
       </el-container>
     </el-container>
   </div>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h3 class="title">学以致用后台管理</h3>
     <el-menu active-text-color="#ffd04b"
              background-color="#545c64"
              class="el-menu-vertical-demo"
@@ -73,6 +74,10 @@ export default {
 </script>
 
 <style lang="sass">
+.title
+  line-height: 66px
+  color: #fff
+  text-align: center
 .el-menu-vertical-demo
   border-right: 1px solid #545c64
 </style>

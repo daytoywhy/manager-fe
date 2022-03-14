@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: #e0e1e5;
+}
 ul>li {
   text-decoration: none;
 }
