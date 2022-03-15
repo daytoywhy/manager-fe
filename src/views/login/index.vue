@@ -50,7 +50,7 @@ export default {
       if (!ruleFormRef) return
       ruleFormRef.validate((valid, fields) => {
         if (valid) {
-          router.push('/home')
+          router.push('/welcome')
         } else {
           ElMessage.warning('填写不规范，请确认后提交')
         }

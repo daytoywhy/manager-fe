@@ -1,13 +1,14 @@
 <template>
   <div class="layout-head">
     <div class="breadcrumb">
-      <h2 class="router-title">当前路由名称</h2>
-      <el-breadcrumb :separator-icon="ArrowRight"
+      <el-breadcrumb separator-class="el-icon-arrow-right"
                      class="breadcrumb-container">
-        <el-breadcrumb-item>homepage</el-breadcrumb-item>
-        <el-breadcrumb-item>promotion management</el-breadcrumb-item>
-        <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-        <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+        <el-breadcrumb-item v-for="(item,index) in breadList"
+                            :key="item.path">
+          <router-link to="/"
+                       v-if="index == 0">{{item.meta.title}}</router-link>
+          <span v-else>{{item.meta.title}}</span>
+        </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="avatar">
@@ -16,9 +17,7 @@
                  :src="circleUrl" />
       <el-dropdown :hide-on-click="false">
         <span class="el-dropdown-link">
-          陈祥雄<el-icon class="el-icon--right">
-            <arrow-down />
-          </el-icon>
+          陈祥雄
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -33,11 +32,11 @@
 </template>
 
 <script>
-import { reactive, ref } from "vue";
-import { useRouter } from "vue-router";
-import { ArrowRight } from '@element-plus/icons-vue'
+import { ref, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
 export default {
   setup (props) {
+    const route = useRoute()
     const router = useRouter()
     const circleUrl = ref(
       'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
@@ -45,10 +44,13 @@ export default {
     const logout = () => {
       router.push('/login')
     }
+    const breadList = computed(() => {
+      return route.matched
+    })
     return {
       circleUrl,
       logout,
-      ArrowRight
+      breadList,
     }
   }
 }
@@ -58,17 +60,16 @@ export default {
 .layout-head
   display: flex
   justify-content: space-between
+  padding-right: 30px
   .breadcrumb
-    color: #fff
-    .router-title
-      margin-top: 5px
+    padding-top: 20px
     .breadcrumb-container
       color: blue
       margin-top: 5px
   .avatar
     .avatar-icon
-      margin: 12px 20px 12px 0
+      margin: 12px 10px 12px 0
     .el-dropdown-link
+      color: #789ccc
       line-height: 66px
-      color: #fff
 </style>
