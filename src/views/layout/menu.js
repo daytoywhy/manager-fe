@@ -8,13 +8,13 @@ const menuList =[
     children:[
       {
         menuName:'用户管理',
-        path:'/user',
+        path:'/system/user',
         _id:'jfsdf7893',
         menuType:1,
       },
       {
         menuName:'菜单管理',
-        path:'/system//menuManage',
+        path:'/system/menuManage',
         _id:'fsvcs657hd',
         menuType:1,
       },

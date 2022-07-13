@@ -201,3 +201,9 @@ ul>li {
 .f_w10 {
   width: 100%;
 }
+
+.pagination{
+  float: right;
+  padding: 10px
+}
+  

@@ -45,6 +45,7 @@ export default {
       router.push('/login')
     }
     const breadList = computed(() => {
+      console.log(route.matched, 'match');
       return route.matched
     })
     return {
